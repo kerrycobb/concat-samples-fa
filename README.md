@@ -3,13 +3,13 @@
 Generate concatenated consensus sequence for each individual from Stacks populations fasta_samples output. Effectively generating the phylip_var_all output.
 
 #### Installation
-Nim must be installed in order to compile. For instructions on installing Nim, see the documentation [here](https://nim-lang.org/install.html)
+1. Nim must be installed in order to compile. For instructions on installing Nim, see the documentation [here](https://nim-lang.org/install.html)
 
-Download script `wget https://raw.githubusercontent.com/kerrycobb/concat-samples-fa/master/concat_samples_fa.nim`
+2. Download script `wget https://raw.githubusercontent.com/kerrycobb/concat-samples-fa/master/concat_samples_fa.nim`
 
-Compile script with `nim --run c -o:concat-samples-fa concat_samples_fa.nim`
+3. Compile script with `nim --run c -o:concat-samples-fa concat_samples_fa.nim`
 
-Place compiled binary in your path with `mv concat-samples-fa /usr/local/bin`
+4. Place compiled binary in your path with `mv concat-samples-fa /usr/local/bin`
 
 
 #### Usage
