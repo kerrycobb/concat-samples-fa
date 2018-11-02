@@ -73,6 +73,7 @@ while true:
         sequence2 = readLine(in_handle)
         seq_len = len(sequence)
         cons: seq[char] = @[]
+      # Generate consensus sequence
       for i in 0 ..< seq_len:
         var
           a = sequence[i]
@@ -107,7 +108,7 @@ var nchars = 0
 for key, value in loci:
   nchars += value
 
-# Output data paritions into nexus file
+# If output is nexus format add parition and header to nexus
 var out_handle = open(out_path, fmWrite)
 if format == "nexus":
   out_handle.writeLine("NEXUS\n\nBEGIN SETS;")
@@ -118,7 +119,8 @@ if format == "nexus":
     out_handle.writeLine("charset " & $key & " = " & $start & "-" & $cnt & ";")
     out_handle.writeLine("END;")
     out_handle.writeLine("BEGIN DATA;\nDIMENSIONS NTAX=$1 NCHAR=$2;\nFORMAT DATATYPE=DNA MISSING=? GAP=-;\nMATRIX" % [$len(samples) , $nchars])
-# Output data partitions into a partition file
+
+# Output data partitions into .partition file
 elif format == "phylip":
   var
     part_path = out_path.changeFileExt("partition")
@@ -131,6 +133,7 @@ elif format == "phylip":
   part_handle.close()
   out_handle.writeLine($len(samples) & "\t" & $nchars)
 
+# Write consensus sequence to output file
 for key, value in samples:
   var seqs: seq[string] = @[]
   for k, v in loci:
@@ -140,6 +143,7 @@ for key, value in samples:
       seqs.add('N'.repeat(loci[k]))
   out_handle.writeLine(value & "\t" & seqs.join())
 
+# Write end characters if nexus
 if format == "nexus":
   out_handle.writeLine(";\nEND;")
 
