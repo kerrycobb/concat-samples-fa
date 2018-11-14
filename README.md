@@ -29,5 +29,7 @@ Options:
 
 #### Examples
 `concat-samples-fa input.fa` outputs input.phy and input.part files.
+
 `concat-samples-fa input.fa -nexus` outputs input.nex containing a partition block
+
 `concat-samples-fa input.fa output.phy` outputs output.phy and output.part
