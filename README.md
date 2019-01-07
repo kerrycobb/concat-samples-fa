@@ -33,3 +33,5 @@ Options:
 `concat-samples-fa input.fa -nexus` outputs input.nex containing a partition block
 
 `concat-samples-fa input.fa output.phy` outputs output.phy and output.part
+
+`concat-samples-fa input.fa output.nex` outputs output.nex with partition section
